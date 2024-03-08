@@ -2,8 +2,7 @@ package slice
 
 // AppendElement добавляет элемент в конец слайса.
 func AppendElement(ints []int, elem int) []int {
-	ints = append(ints, elem)
-	return ints
+	return append(ints, elem)
 }
 
 // RemoveElement удаляет последний элемент из слайса. Если массив пуст, функция возвращает оригинальный пустой массив.
