@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -46,7 +47,7 @@ func getFiles(dir string) ([]string, error) {
 
 	for _, file := range files {
 		if file.IsDir() {
-			val, err := getFiles(dir + "/" + file.Name())
+			val, err := getFiles(filepath.Join(dir, file.Name()))
 			if err != nil {
 				return nil, err
 			}
@@ -56,7 +57,7 @@ func getFiles(dir string) ([]string, error) {
 			continue
 		}
 
-		fileNames = append(fileNames, dir+"/"+file.Name())
+		fileNames = append(fileNames, filepath.Join(dir, file.Name()))
 	}
 
 	return fileNames, nil
