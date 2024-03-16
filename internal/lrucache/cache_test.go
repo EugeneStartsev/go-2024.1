@@ -88,8 +88,8 @@ func TestCache_Range(t *testing.T) {
 		return key < 8
 	})
 
-	require.Equal(t, []int{5, 6, 7, 8}, keys)
-	require.Equal(t, []int{5, 6, 7, 8}, values)
+	require.Equal(t, []int{5, 6, 7, 8, 9}, keys)
+	require.Equal(t, []int{5, 6, 7, 8, 9}, values)
 }
 
 func TestCache_eviction(t *testing.T) {
