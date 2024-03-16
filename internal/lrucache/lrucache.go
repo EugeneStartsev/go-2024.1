@@ -35,7 +35,6 @@ func (l *lruCache) Get(key int) (int, bool) {
 
 	elem.Value.(*Item).timestamp = time.Now()
 	l.queue.MoveToFront(elem)
-	l.items[key] = elem
 	return elem.Value.(*Item).value, true
 }
 
