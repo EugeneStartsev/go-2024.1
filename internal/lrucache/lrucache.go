@@ -39,7 +39,7 @@ func (l *lruCache) Get(key int) (int, bool) {
 }
 
 func (l *lruCache) Set(key, value int) {
-	if l.capacity != 0 {
+	if l.capacity > 0 {
 		if elem, isExist := l.items[key]; isExist == true {
 			l.queue.MoveToFront(elem)
 			elem.Value.(*Item).value = value
