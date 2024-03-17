@@ -31,11 +31,25 @@ func (api *myApi) GetTopic(id uint64) topic {
 
 // здесь необходимо реализовать метод AddTopic
 func (api *myApi) AddTopic(newTopic topic) bool {
+	if _, ok := api.storage[newTopic.id]; ok {
+		return false
+	}
+
+	api.storage[newTopic.id] = newTopic
+
 	return true
 }
 
 // здесь необходимо реализовать метод RemoveTopic
 func (api *myApi) RemoveTopic(id uint64) bool {
+	keysCount := len(api.storage)
+
+	delete(api.storage, id)
+
+	if len(api.storage) == keysCount {
+		return false
+	}
+
 	return true
 }
 
