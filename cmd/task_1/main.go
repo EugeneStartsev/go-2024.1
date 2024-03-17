@@ -31,9 +31,7 @@ func (api *myApi) GetTopic(id uint64) topic {
 
 // здесь необходимо реализовать метод AddTopic
 func (api *myApi) AddTopic(newTopic topic) bool {
-	_, ok := api.storage[newTopic.id]
-
-	if ok {
+	if _, ok := api.storage[newTopic.id]; ok {
 		return false
 	}
 
